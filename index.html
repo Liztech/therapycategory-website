@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy Pricing Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        section {
+            padding: 50px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .category-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Therapy Pricing Management</h1>
+    </header>
+
+    <section>
+        <form id="pricingForm">
+            <div class="category-container">
+                <label for="therapyCategory">Therapy Category:</label>
+                <select class="therapy-category" name="therapyCategory[]">
+                    <option value="individual">Individual Therapy</option>
+                    <option value="couples">Couples Therapy</option>
+                    <option value="family">Family Therapy</option>
+                    <!-- Add more therapy categories as needed -->
+                </select>
+
+                <label for="charge">Charge per Session:</label>
+                <input type="number" class="charge" name="charge[]" placeholder="Enter charge per session" required>
+            </div>
+
+            <button type="button" onclick="addCategory()">Add Another Category</button>
+            <button type="button" onclick="submitForm()">Set Pricing</button>
+        </form>
+    </section>
+
+    <script>
+        function addCategory() {
+            const container = document.querySelector('.category-container').cloneNode(true);
+            document.getElementById('pricingForm').insertBefore(container, document.querySelector('button'));
+        }
+
+        function submitForm() {
+            // Add logic here to send the form data to the backend for storage
+            alert('Pricing set successfully!');
+            document.getElementById('pricingForm').reset();
+        }
+    </script>
+
+</body>
+</html>
